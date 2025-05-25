@@ -225,17 +225,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SyncRequest"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Dispositivo"
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SyncRequest"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Dispositivo"
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SyncRequest"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Dispositivo"
+                }
               }
             }
           }
@@ -246,7 +255,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SyncResult"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Dispositivo"
+                  }
                 }
               }
             }
@@ -297,6 +309,9 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -327,65 +342,6 @@
           }
         },
         "additionalProperties": { }
-      },
-      "SyncItem": {
-        "type": "object",
-        "properties": {
-          "deviceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "success": {
-            "type": "boolean"
-          },
-          "error": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SyncItemRequest": {
-        "type": "object",
-        "properties": {
-          "operation": {
-            "type": "string",
-            "nullable": true
-          },
-          "device": {
-            "$ref": "#/components/schemas/Dispositivo"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SyncRequest": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SyncItemRequest"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SyncResult": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          },
-          "syncedItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SyncItem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       }
     }
   }

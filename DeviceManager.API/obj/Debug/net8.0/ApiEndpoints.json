@@ -183,14 +183,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "DeviceManager.API.Controllers.SyncRequest",
+        "Name": "devices",
+        "Type": "System.Collections.Generic.List\u00601[[DeviceManager.API.Models.Dispositivo, DeviceManager.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "DeviceManager.API.Controllers.SyncResult",
+        "Type": "System.Collections.Generic.List\u00601[[DeviceManager.API.Models.Dispositivo, DeviceManager.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],

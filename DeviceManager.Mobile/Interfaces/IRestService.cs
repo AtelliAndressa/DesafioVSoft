@@ -13,6 +13,8 @@ namespace DeviceManager.Mobile.Interfaces
         Task DeleteDeviceAsync(string id);
 
         Task<Dispositivo> GetDeviceAsync(string id);
+
+        Task<List<Dispositivo>> SyncAllDevicesAsync(List<Dispositivo> devices);
         
         // Métodos legados para compatibilidade
         Task SaveDeviceItemAsync(Dispositivo item, bool isNewItem);

@@ -74,7 +74,8 @@ namespace DeviceManager.Mobile.Services
                 Descricao = device.Descricao,
                 CodigoReferencia = device.CodigoReferencia,
                 DataCriacao = device.DataCriacao.DateTime,
-                DataAtualizacao = device.DataAtualizacao?.DateTime
+                DataAtualizacao = device.DataAtualizacao?.DateTime,
+                IsDeleted = device.IsDeleted
             };
             
             return model;
@@ -291,6 +292,54 @@ namespace DeviceManager.Mobile.Services
         public async Task DeleteDeviceItemAsync(string id)
         {
             await DeleteDeviceAsync(id);
+        }
+
+        public async Task<List<Dispositivo>> SyncAllDevicesAsync(List<Dispositivo> devices)
+        {
+            try
+            {
+                Uri uri = new Uri($"{Constants.RestUrl}/sync");
+                
+                // Prepara os dispositivos para envio
+                var devicesToSync = devices.Select(d => new
+                {
+                    Id = d.ID,
+                    Descricao = d.Descricao,
+                    CodigoReferencia = d.CodigoReferencia,
+                    DataCriacao = d.DataCriacao.DateTime,
+                    DataAtualizacao = d.DataAtualizacao?.DateTime,
+                    IsDeleted = d.IsDeleted
+                }).ToList();
+
+                string json = JsonSerializer.Serialize(devicesToSync, _serializerOptions);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    var syncedDevices = JsonSerializer.Deserialize<List<Dispositivo>>(responseContent, _serializerOptions);
+
+                    // Marca todos os dispositivos como sincronizados
+                    foreach (var device in devices)
+                    {
+                        await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
+                    }
+
+                    return syncedDevices;
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao sincronizar dispositivos: {response.StatusCode} - {errorContent}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Erro ao sincronizar dispositivos: {ex.Message}");
+                throw;
+            }
         }
     }
 }

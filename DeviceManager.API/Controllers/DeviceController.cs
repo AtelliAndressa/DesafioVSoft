@@ -177,74 +177,28 @@ namespace DeviceManager.API.Controllers
         }
 
         /// <summary>
-        /// Synchronizes devices from mobile app
+        /// Sincroniza múltiplos dispositivos de uma vez
         /// </summary>
-        /// <param name="request">Sync request containing device operations</param>
-        /// <returns>Sync result</returns>
+        /// <param name="devices">Lista de dispositivos para sincronizar</param>
+        /// <returns>Lista de dispositivos sincronizados</returns>
         [HttpPost("sync")]
-        [ProducesResponseType(typeof(SyncResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dispositivo>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<SyncResult>> Sync([FromBody] SyncRequest request)
+        public async Task<ActionResult<List<Dispositivo>>> Sync([FromBody] List<Dispositivo> devices)
         {
             try
             {
-                if (request?.Items == null || !request.Items.Any())
-                    return BadRequest("Sync request must contain at least one item");
+                if (devices == null || !devices.Any())
+                    return BadRequest("Lista de dispositivos não pode estar vazia");
 
-                var result = new SyncResult
-                {
-                    Success = true,
-                    SyncedItems = new List<SyncItem>()
-                };
-
-                foreach (var item in request.Items)
-                {
-                    try
-                    {
-                        if (item.Device == null)
-                            throw new ArgumentException("Device information is required");
-
-                        switch (item.Operation?.ToLower())
-                        {
-                            case "create":
-                                await _deviceService.CreateAsync(item.Device);
-                                break;
-                            case "update":
-                                await _deviceService.UpdateAsync(item.Device.Id, item.Device);
-                                break;
-                            case "delete":
-                                await _deviceService.RemoveAsync(item.Device.Id);
-                                break;
-                            default:
-                                throw new ArgumentException($"Invalid operation: {item.Operation}");
-                        }
-
-                        result.SyncedItems.Add(new SyncItem
-                        {
-                            DeviceId = item.Device.Id,
-                            Success = true
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, "Error syncing device {DeviceId}", item.Device?.Id);
-                        result.SyncedItems.Add(new SyncItem
-                        {
-                            DeviceId = item.Device?.Id,
-                            Success = false,
-                            Error = ex.Message
-                        });
-                        result.Success = false;
-                    }
-                }
-
-                return Ok(result);
+                var syncedDevices = await _deviceService.SyncDevicesAsync(devices);
+                return Ok(syncedDevices);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error during sync operation");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred during sync operation");
+                _logger.LogError(ex, "Error during batch sync");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while syncing devices");
             }
         }
     }

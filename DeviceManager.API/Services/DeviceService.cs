@@ -83,7 +83,8 @@ namespace DeviceManager.API.Services
                 Descricao = dispositivo.Descricao,
                 CodigoReferencia = dispositivo.CodigoReferencia,
                 DataCriacao = dispositivo.DataCriacao,
-                DataAtualizacao = dispositivo.DataAtualizacao
+                DataAtualizacao = dispositivo.DataAtualizacao,
+                IsDeleted = dispositivo.IsDeleted
             };
         }
 
@@ -155,6 +156,60 @@ namespace DeviceManager.API.Services
                 throw;
             }
         }
+
+        public async Task<List<Dispositivo>> SyncDevicesAsync(List<Dispositivo> devices)
+        {
+            try
+            {
+                var result = new List<Dispositivo>();
+                var now = DateTime.UtcNow;
+
+                foreach (var device in devices)
+                {
+                    try
+                    {
+                        var existingDevice = await GetByIdAsync(device.Id);
+                        
+                        if (device.IsDeleted)
+                        {
+                            // Se o dispositivo existe e está marcado como excluído, remove
+                            if (existingDevice != null)
+                            {
+                                await RemoveAsync(device.Id);
+                            }
+                            // Não adiciona à lista de resultados pois foi excluído
+                        }
+                        else if (existingDevice == null)
+                        {
+                            // Novo dispositivo
+                            device.DataCriacao = now;
+                            device.DataAtualizacao = now;
+                            await CreateAsync(device);
+                            result.Add(device);
+                        }
+                        else
+                        {
+                            // Atualizar dispositivo existente
+                            device.DataAtualizacao = now;
+                            await UpdateAsync(device.Id, device);
+                            result.Add(device);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error syncing device {Id}", device.Id);
+                        throw;
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during batch sync");
+                throw;
+            }
+        }
     }
 
     public class DispositivoMongo
@@ -174,5 +229,8 @@ namespace DeviceManager.API.Services
 
         [BsonElement("DataAtualizacao")]
         public DateTime? DataAtualizacao { get; set; }
+
+        [BsonElement("IsDeleted")]
+        public bool IsDeleted { get; set; }
     }
 }

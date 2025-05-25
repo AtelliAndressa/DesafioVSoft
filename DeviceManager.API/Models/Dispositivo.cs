@@ -23,5 +23,8 @@ namespace DeviceManager.API.Models
 
         [BsonElement("dataAtualizacao")]
         public DateTime? DataAtualizacao { get; set; }
+
+        [BsonElement("isDeleted")]
+        public bool IsDeleted { get; set; }
     }
 }
