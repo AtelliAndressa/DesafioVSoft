@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DeviceManager.Mobile.Views.DeviceListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Dispositivos">
+
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto">
+        <HorizontalStackLayout
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            Spacing="10">
+            <Button
+                x:Name="syncButton"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Primary},
+                                                  Dark={StaticResource Primary}}"
+                Clicked="OnSyncButtonClicked"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                Text="Sincronizar"
+                TextColor="White">
+                <Button.Shadow>
+                    <Shadow
+                        Brush="{AppThemeBinding Light={StaticResource Gray900},
+                                                Dark={StaticResource Gray100}}"
+                        Opacity="0.3"
+                        Radius="4"
+                        Offset="0,2" />
+                </Button.Shadow>
+            </Button>
+        </HorizontalStackLayout>
+
+        <CollectionView
+            x:Name="collectionView"
+            Grid.Row="1"
+            SelectionChanged="OnSelectionChanged"
+            SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="0,8"
+                        Padding="16"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                                          Dark={StaticResource Gray900}}"
+                        BorderColor="{AppThemeBinding Light={StaticResource Gray300},
+                                                      Dark={StaticResource Gray600}}"
+                        CornerRadius="12"
+                        HasShadow="True">
+                        <Grid ColumnDefinitions="*,Auto" RowSpacing="8">
+                            <VerticalStackLayout Grid.Column="0" Spacing="4">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="{Binding Descricao}"
+                                    TextColor="{AppThemeBinding Light={StaticResource Black},
+                                                                Dark={StaticResource White}}" />
+                                <Label
+                                    FontSize="14"
+                                    Text="{Binding CodigoReferencia, StringFormat='Código Referência: {0}'}"
+                                    TextColor="{AppThemeBinding Light={StaticResource Gray600},
+                                                                Dark={StaticResource Gray400}}" />
+                                <Label
+                                    FontSize="12"
+                                    Text="{Binding IsSynchronized, StringFormat='Sincronizado: {0}'}"
+                                    TextColor="{AppThemeBinding Light={StaticResource Gray500},
+                                                                Dark={StaticResource Gray500}}" />
+                            </VerticalStackLayout>
+                            <Image
+                                Grid.Column="1"
+                                HeightRequest="28"
+                                Source="{Binding IsSynchronized, Converter={StaticResource BoolToImageConverter}}"
+                                VerticalOptions="Center"
+                                WidthRequest="28" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary},
+                                              Dark={StaticResource Primary}}"
+            Clicked="OnAddItemClicked"
+            CornerRadius="25"
+            HeightRequest="50"
+            Text="Adicionar"
+            TextColor="White">
+            <Button.Shadow>
+                <Shadow
+                    Brush="{AppThemeBinding Light={StaticResource Gray900},
+                                            Dark={StaticResource Gray100}}"
+                    Opacity="0.3"
+                    Radius="4"
+                    Offset="0,2" />
+            </Button.Shadow>
+        </Button>
+    </Grid>
+
+</ContentPage>

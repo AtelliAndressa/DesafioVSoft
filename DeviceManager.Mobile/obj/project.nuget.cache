@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "p7LBY87xTN6GfTam8A1XInPkGc7+TzgcxovVQZffHHjkBTkC+MLZy6ZN7c3mWb51+GnY5ubWyZDte+HAmkyDbA==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\DeviceManager.Mobile.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "A versão da plataforma não está presente para uma ou mais estruturas de destino, embora elas tenham uma plataforma especificada: net9.0-android"
+    }
+  ]
+}

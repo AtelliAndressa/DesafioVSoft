@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DeviceManager.Mobile.Views.DeviceItemPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:DeviceManager.Mobile.Views"
+    Title="DeviceItemPage"
+    x:DataType="views:DeviceItemPage">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,10,0,10" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Margin="20">
+        <Label Text="Descrição" />
+        <Entry Placeholder="Descrição Dispositivo" Text="{Binding Path=Dispositivo.Descricao}" />
+        <Label Text="Código Referência" />
+        <Entry Placeholder="Código Referência" Text="{Binding Path=Dispositivo.CodigoReferencia}" />
+        <Label Text="Status de Sincronização" />
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Grid.Column="0" 
+                   Text="{Binding Path=Dispositivo.IsSynchronized, StringFormat='{0}'}"
+                   FontSize="16"
+                   FontAttributes="None"
+                   VerticalOptions="Center"/>
+            <Image Grid.Column="1"
+                   Source="{Binding Path=Dispositivo.IsSynchronized, Converter={StaticResource BoolToImageConverter}}"
+                   HeightRequest="24"
+                   WidthRequest="24"
+                   VerticalOptions="Center"/>
+        </Grid>
+        <Button Clicked="OnSaveButtonClicked" Text="Salvar" />
+        <Button Clicked="OnDeleteButtonClicked" Text="Deletar" />
+        <Button Clicked="OnCancelButtonClicked" Text="Cancelar" />
+    </VerticalStackLayout>
+
+</ContentPage>

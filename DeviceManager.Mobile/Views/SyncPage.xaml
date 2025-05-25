@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DeviceManager.Mobile.Views.SyncPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:DeviceManager.Mobile.ViewModels"
+    Title="Sincronização"
+    x:DataType="viewmodels:SyncViewModel">
+
+    <Grid Padding="20" RowDefinitions="Auto,Auto,*,Auto">
+        <Label
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="Sincronização de Dispositivos" />
+
+        <StackLayout Grid.Row="1" Margin="0,0,0,20">
+            <Label
+                Margin="0,0,0,10"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{Binding SyncStatus}" />
+
+            <ProgressBar
+                Margin="0,10"
+                IsVisible="{Binding IsSyncing}"
+                Progress="{Binding SyncProgress}" />
+
+            <Label
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsSyncing}"
+                Text="{Binding SyncProgress, StringFormat='{0}%'}" />
+        </StackLayout>
+
+        <CollectionView
+            Grid.Row="2"
+            Margin="0,0,0,20"
+            ItemsSource="{Binding SyncLogs}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label
+                        Margin="0,5"
+                        Text="{Binding}"
+                        TextColor="{AppThemeBinding Light={StaticResource Gray500},
+                                                    Dark={StaticResource Gray400}}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Grid.Row="3"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary},
+                                              Dark={StaticResource Primary}}"
+            Command="{Binding SyncCommand}"
+            HeightRequest="50"
+            IsEnabled="{Binding IsSyncing, Converter={StaticResource InverseBoolConverter}}"
+            Text="Sincronizar Agora"
+            TextColor="White">
+            <Button.Shadow>
+                <Shadow
+                    Brush="{AppThemeBinding Light={StaticResource Gray900},
+                                            Dark={StaticResource Gray100}}"
+                    Opacity="0.3"
+                    Radius="4"
+                    Offset="0,2" />
+            </Button.Shadow>
+        </Button>
+    </Grid>
+
+</ContentPage> 
