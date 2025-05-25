@@ -18,8 +18,8 @@ namespace DeviceManager.Mobile.Repositories
                 ShouldDeleteIfMigrationNeeded = true
             };
 
-            // ⚠️ Limpa o banco local toda vez que esse repositório for criado
-            Realm.DeleteRealm(config);
+            //// ⚠️ Limpa o banco local toda vez que esse repositório for criado
+            //Realm.DeleteRealm(config);
 
             _realm = Realm.GetInstance(config);
         }
