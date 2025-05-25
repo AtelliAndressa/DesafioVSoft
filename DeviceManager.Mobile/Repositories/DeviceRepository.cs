@@ -17,8 +17,32 @@ namespace DeviceManager.Mobile.Repositories
                 SchemaVersion = 1,
                 ShouldDeleteIfMigrationNeeded = true
             };
+
+            // ⚠️ Limpa o banco local toda vez que esse repositório for criado
+            Realm.DeleteRealm(config);
+
             _realm = Realm.GetInstance(config);
         }
+
+        public void DeleteRealmFile()
+        {
+            try
+            {
+                var config = new RealmConfiguration
+                {
+                    SchemaVersion = 1
+                };
+
+                Realm.DeleteRealm(config);
+                Debug.WriteLine("Arquivo Realm local deletado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Erro ao deletar arquivo Realm: {ex.Message}");
+                throw;
+            }
+        }
+
 
         public Task<List<Dispositivo>> GetAllAsync()
         {

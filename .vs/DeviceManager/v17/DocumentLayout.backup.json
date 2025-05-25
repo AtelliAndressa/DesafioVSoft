@@ -1,26 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\",
+  "WorkspaceRootPath": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|c:\\users\\andre\\downloads\\vsoft\\desafio-vsoft\\desafio-vsoft\\devicemanager.mobile\\services\\restservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|solutionrelative:devicemanager.mobile\\services\\restservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|c:\\users\\andre\\onedrive\\documentos\\github\\desafiovsoft\\devicemanager.api\\services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|solutionrelative:devicemanager.api\\services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|c:\\users\\andre\\downloads\\vsoft\\desafio-vsoft\\desafio-vsoft\\devicemanager.mobile\\services\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|solutionrelative:devicemanager.mobile\\services\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|c:\\users\\andre\\onedrive\\documentos\\github\\desafiovsoft\\devicemanager.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|solutionrelative:devicemanager.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|c:\\users\\andre\\downloads\\vsoft\\desafio-vsoft\\desafio-vsoft\\devicemanager.mobile\\services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|solutionrelative:devicemanager.mobile\\services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|c:\\users\\andre\\downloads\\vsoft\\desafio-vsoft\\desafio-vsoft\\devicemanager.mobile\\repositories\\devicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|solutionrelative:devicemanager.mobile\\repositories\\devicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|c:\\users\\andre\\downloads\\vsoft\\desafio-vsoft\\desafio-vsoft\\devicemanager.mobile\\views\\devicelistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A46BC-2D52-4A33-B567-5859345E8950}|DeviceManager.Mobile\\DeviceManager.Mobile.csproj|solutionrelative:devicemanager.mobile\\views\\devicelistpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|c:\\users\\andre\\onedrive\\documentos\\github\\desafiovsoft\\devicemanager.api\\models\\dispositivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98289DCD-1C36-4D82-942E-C716D28B5F52}|DeviceManager.API\\DeviceManager.API.csproj|solutionrelative:devicemanager.api\\models\\dispositivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,75 +38,49 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DeviceService.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\DeviceService.cs",
-              "RelativeDocumentMoniker": "DeviceManager.Mobile\\Services\\DeviceService.cs",
-              "ToolTip": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\DeviceService.cs",
-              "RelativeToolTip": "DeviceManager.Mobile\\Services\\DeviceService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T01:23:57.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeviceRepository.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Repositories\\DeviceRepository.cs",
-              "RelativeDocumentMoniker": "DeviceManager.Mobile\\Repositories\\DeviceRepository.cs",
-              "ToolTip": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Repositories\\DeviceRepository.cs",
-              "RelativeToolTip": "DeviceManager.Mobile\\Repositories\\DeviceRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T01:18:04.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RestService.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\RestService.cs",
-              "RelativeDocumentMoniker": "DeviceManager.Mobile\\Services\\RestService.cs",
-              "ToolTip": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\RestService.cs",
-              "RelativeToolTip": "DeviceManager.Mobile\\Services\\RestService.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAGoAAAANAAAAAAAAAA==",
+              "Title": "DeviceService.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Services\\DeviceService.cs",
+              "RelativeDocumentMoniker": "DeviceManager.API\\Services\\DeviceService.cs",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Services\\DeviceService.cs",
+              "RelativeToolTip": "DeviceManager.API\\Services\\DeviceService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAAFwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T00:58:54.996Z",
+              "WhenOpened": "2025-05-25T17:51:50.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dispositivo.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Models\\Dispositivo.cs",
+              "RelativeDocumentMoniker": "DeviceManager.API\\Models\\Dispositivo.cs",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Models\\Dispositivo.cs",
+              "RelativeToolTip": "DeviceManager.API\\Models\\Dispositivo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T17:50:55.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SyncService.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\SyncService.cs",
-              "RelativeDocumentMoniker": "DeviceManager.Mobile\\Services\\SyncService.cs",
-              "ToolTip": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Services\\SyncService.cs",
-              "RelativeToolTip": "DeviceManager.Mobile\\Services\\SyncService.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAABMAAABWAAAAAAAAAA==",
+              "Title": "DeviceController.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Controllers\\DeviceController.cs",
+              "RelativeDocumentMoniker": "DeviceManager.API\\Controllers\\DeviceController.cs",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\Controllers\\DeviceController.cs",
+              "RelativeToolTip": "DeviceManager.API\\Controllers\\DeviceController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAADgv2sAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T01:11:13.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeviceListPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Views\\DeviceListPage.xaml.cs",
-              "RelativeDocumentMoniker": "DeviceManager.Mobile\\Views\\DeviceListPage.xaml.cs",
-              "ToolTip": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Mobile\\Views\\DeviceListPage.xaml.cs",
-              "RelativeToolTip": "DeviceManager.Mobile\\Views\\DeviceListPage.xaml.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAADwv00AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T01:11:13.453Z",
+              "WhenOpened": "2025-05-25T17:36:08.018Z",
               "EditorCaption": ""
             }
           ]

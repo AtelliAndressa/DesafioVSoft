@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vWoUwvpoj4Gs82pFLLY2i66qQsZ1lFz4C9aj/B3bOgHxHFv9/wf9b4cKzN+x8QCUsDUwTMWhoPkHmIIRo3I8nQ==",
+  "dgSpecHash": "m/V5p42HkrE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.API\\DeviceManager.API.csproj",
+  "projectFilePath": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\DeviceManager.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fody\\6.9.1\\fody.6.9.1.nupkg.sha512",

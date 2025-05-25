@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeviceManager.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a162abdc81a666b8d7d536b4cdb911f5426f980")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeviceManager.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeviceManager.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

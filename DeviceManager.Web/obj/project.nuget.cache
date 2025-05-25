@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FfSqPjbPiGCxgy5/whc0GXNSS/uHxiRC29LhwZ4AgR7QSK5AbO9Ba1JjfnuimtrEzrCgY1icwRqKPPnwZQtMMA==",
+  "dgSpecHash": "DxA/DdKEpt4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.Web\\DeviceManager.Web.csproj",
+  "projectFilePath": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.Web\\DeviceManager.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.10\\microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.10\\microsoft.aspnetcore.components.8.0.10.nupkg.sha512",
@@ -32,14 +32,14 @@
     "C:\\Users\\andre\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\microsoft.jsinterop\\8.0.10\\microsoft.jsinterop.8.0.10.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.10\\microsoft.jsinterop.webassembly.8.0.10.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.0\\microsoft.net.illink.tasks.8.0.0.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.1\\microsoft.net.sdk.webassembly.pack.8.0.1.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.16\\microsoft.net.illink.tasks.8.0.16.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.5\\microsoft.net.sdk.webassembly.pack.9.0.5.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\system.io.pipelines\\9.0.4\\system.io.pipelines.9.0.4.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\system.net.http.json\\9.0.4\\system.net.http.json.9.0.4.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\system.text.encodings.web\\9.0.4\\system.text.encodings.web.9.0.4.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\system.text.json\\9.0.4\\system.text.json.9.0.4.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.1.nupkg.sha512"
+    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.16.nupkg.sha512"
   ],
   "logs": []
 }

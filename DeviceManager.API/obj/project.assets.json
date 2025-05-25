@@ -5682,11 +5682,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.API\\DeviceManager.API.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\DeviceManager.API.csproj",
       "projectName": "DeviceManager.API",
-      "projectPath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.API\\DeviceManager.API.csproj",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\DeviceManager.API.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Downloads\\vsoft\\Desafio-vSoft\\Desafio-vSoft\\DeviceManager.API\\obj\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Documentos\\GitHub\\DesafioVSoft\\DeviceManager.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5719,7 +5719,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -5761,7 +5762,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200-preview.23624.5/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -47,9 +47,8 @@ namespace DeviceManager.API.Services
                 }
                 else
                 {
-                    // Se não for GUID, tentar converter para ObjectId
                     var objectId = ObjectId.Parse(id);
-                    var dispositivo = await _dispositivos.Find(d => d.Id == objectId).FirstOrDefaultAsync();
+                    var dispositivo = await _dispositivos.Find(d => d.Id == id).FirstOrDefaultAsync();
                     if (dispositivo == null) return null;
                     return MapToDispositivo(dispositivo);
                 }
@@ -92,7 +91,6 @@ namespace DeviceManager.API.Services
         {
             try
             {
-                // Verificar se já existe um dispositivo com o mesmo ID
                 var existingDevice = await _dispositivos.Find(d => d.Id.ToString() == dispositivo.Id).FirstOrDefaultAsync();
                 if (existingDevice != null)
                 {
@@ -101,7 +99,7 @@ namespace DeviceManager.API.Services
 
                 var dispositivoMongo = new DispositivoMongo
                 {
-                    Id = ObjectId.Parse(dispositivo.Id),
+                    Id = dispositivo.Id,
                     Descricao = dispositivo.Descricao,
                     CodigoReferencia = dispositivo.CodigoReferencia,
                     DataCriacao = dispositivo.DataCriacao,
@@ -121,31 +119,20 @@ namespace DeviceManager.API.Services
         {
             try
             {
-                ObjectId objectId;
-                if (Guid.TryParse(id, out _))
-                {
-                    // Se for GUID, buscar o documento pelo ID como string
-                    var existingDevice = await _dispositivos.Find(d => d.Id.ToString() == id).FirstOrDefaultAsync();
-                    if (existingDevice == null)
-                        throw new Exception($"Device with ID {id} not found");
-                    objectId = existingDevice.Id;
-                }
-                else
-                {
-                    // Se não for GUID, tentar converter para ObjectId
-                    objectId = ObjectId.Parse(id);
-                }
+                var existingDevice = await _dispositivos.Find(d => d.Id == id).FirstOrDefaultAsync();
+                if (existingDevice == null)
+                    throw new Exception($"Device with ID {id} not found");
 
                 var dispositivoMongo = new DispositivoMongo
                 {
-                    Id = objectId,
+                    Id = id,
                     Descricao = dispositivo.Descricao,
                     CodigoReferencia = dispositivo.CodigoReferencia,
                     DataCriacao = dispositivo.DataCriacao,
                     DataAtualizacao = dispositivo.DataAtualizacao
                 };
 
-                await _dispositivos.ReplaceOneAsync(d => d.Id == objectId, dispositivoMongo);
+                await _dispositivos.ReplaceOneAsync(d => d.Id == id, dispositivoMongo);
             }
             catch (Exception ex)
             {
@@ -158,21 +145,9 @@ namespace DeviceManager.API.Services
         {
             try
             {
-                if (Guid.TryParse(id, out _))
-                {
-                    // Se for GUID, buscar o documento pelo ID como string
-                    var existingDevice = await _dispositivos.Find(d => d.Id.ToString() == id).FirstOrDefaultAsync();
-                    if (existingDevice == null)
-                        throw new Exception($"Device with ID {id} not found");
-                    
-                    await _dispositivos.DeleteOneAsync(d => d.Id == existingDevice.Id);
-                }
-                else
-                {
-                    // Se não for GUID, tentar converter para ObjectId
-                    var objectId = ObjectId.Parse(id);
-                    await _dispositivos.DeleteOneAsync(d => d.Id == objectId);
-                }
+                var result = await _dispositivos.DeleteOneAsync(d => d.Id == id);
+                if (result.DeletedCount == 0)
+                    throw new Exception($"Device with ID {id} not found");
             }
             catch (Exception ex)
             {
@@ -185,8 +160,8 @@ namespace DeviceManager.API.Services
     public class DispositivoMongo
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        [BsonRepresentation(BsonType.String)]
+        public string Id { get; set; }
 
         [BsonElement("Descricao")]
         public string Descricao { get; set; }
