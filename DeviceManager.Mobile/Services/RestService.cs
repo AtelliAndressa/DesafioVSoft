@@ -10,10 +10,11 @@ namespace DeviceManager.Mobile.Services
     {
         private readonly HttpClient _client;
         private readonly JsonSerializerOptions _serializerOptions;
+        private readonly IDeviceRepository _deviceRepository;
 
         public List<Dispositivo> Items { get; private set; }
 
-        public RestService()
+        public RestService(IDeviceRepository deviceRepository)
         {
             try
             {
@@ -41,6 +42,8 @@ namespace DeviceManager.Mobile.Services
                 Debug.WriteLine($"Erro ao inicializar RestService: {ex.Message}");
                 throw;
             }
+
+            _deviceRepository = deviceRepository;
         }
 
         private HttpClientHandler GetInsecureHandler()
@@ -152,6 +155,9 @@ namespace DeviceManager.Mobile.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
+
+                    await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
+
                     return JsonSerializer.Deserialize<Dispositivo>(responseContent, _serializerOptions);
                 }
                 else

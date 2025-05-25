@@ -25,16 +25,18 @@
         <Entry Placeholder="Código Referência" Text="{Binding Path=Dispositivo.CodigoReferencia}" />
         <Label Text="Status de Sincronização" />
         <Grid ColumnDefinitions="*,Auto">
-            <Label Grid.Column="0" 
-                   Text="{Binding Path=Dispositivo.IsSynchronized, StringFormat='{0}'}"
-                   FontSize="16"
-                   FontAttributes="None"
-                   VerticalOptions="Center"/>
-            <Image Grid.Column="1"
-                   Source="{Binding Path=Dispositivo.IsSynchronized, Converter={StaticResource BoolToImageConverter}}"
-                   HeightRequest="24"
-                   WidthRequest="24"
-                   VerticalOptions="Center"/>
+            <Label
+                Grid.Column="0"
+                FontAttributes="None"
+                FontSize="16"
+                Text="{Binding Path=Dispositivo.IsSynchronized, StringFormat='{0}'}"
+                VerticalOptions="Center" />
+            <Image
+                Grid.Column="1"
+                HeightRequest="24"
+                Source="{Binding Path=Dispositivo.IsSynchronized, Converter={StaticResource BoolToImageConverter}}"
+                VerticalOptions="Center"
+                WidthRequest="24" />
         </Grid>
         <Button Clicked="OnSaveButtonClicked" Text="Salvar" />
         <Button Clicked="OnDeleteButtonClicked" Text="Deletar" />

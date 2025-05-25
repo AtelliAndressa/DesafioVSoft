@@ -178,6 +178,21 @@ namespace DeviceManager.Mobile.Repositories
                 .Any(d => d.CodigoReferencia == codigoReferencia && !d.IsDeleted));
         }
 
+        public async Task MarcarComoSincronizadoAsync(string id)
+        {
+            var dispositivo = await GetByIdAsync(id);
+            if (dispositivo == null)
+                throw new InvalidOperationException($"Dispositivo com ID {id} não encontrado");
+
+            await _realm.WriteAsync(() =>
+            {
+                dispositivo.IsSynchronized = true;
+                dispositivo.DataAtualizacao = DateTimeOffset.Now;
+            });
+
+            Debug.WriteLine($"Dispositivo marcado como sincronizado: {dispositivo.CodigoReferencia}");
+        }
+
         public Task<int> GetPendingChangesCountAsync()
         {
             return Task.FromResult(_realm.All<Dispositivo>()
