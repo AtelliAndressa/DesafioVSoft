@@ -1,0 +1,109 @@
+@page "/"
+@using DeviceManager.Web.Models
+@using DeviceManager.Web.Services
+
+<PageTitle>Dispositivos</PageTitle>
+
+<div class="container">
+    <h1>Dispositivos</h1>
+
+    <div class="mb-3">
+        <button class="btn btn-primary" @onclick="() => ShowCreateDialog()">Adicionar Dispositivo</button>
+    </div>
+
+    @if (_devices == null)
+    {
+        <p>Carregando...</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Código de Referência</th>
+                        <th>Data de Criação</th>
+                        <th>Data de Atualização</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var device in _devices)
+                    {
+                        <tr>
+                            <td>@device.Descricao</td>
+                            <td>@device.CodigoReferencia</td>
+                            <td>@device.DataCriacao.ToString("g")</td>
+                            <td>@(device.DataAtualizacao?.ToString("g") ?? "-")</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary me-2" @onclick="() => ShowEditDialog(device)">Editar</button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => ShowDeleteDialog(device)">Excluir</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (_showDialog)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@(_isEdit ? "Editar Dispositivo" : "Adicionar Dispositivo")</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDialog"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="@_currentDevice" OnValidSubmit="HandleValidSubmit">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <InputText @bind-Value="_currentDevice.Descricao" class="form-control" />
+                            <ValidationMessage For="@(() => _currentDevice.Descricao)" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Código de Referência</label>
+                            <InputText @bind-Value="_currentDevice.CodigoReferencia" class="form-control" />
+                            <ValidationMessage For="@(() => _currentDevice.CodigoReferencia)" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" @onclick="CloseDialog">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@if (_showDeleteDialog)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteDialog"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir o dispositivo "@_deviceToDelete.Descricao"?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseDeleteDialog">Cancelar</button>
+                    <button type="button" class="btn btn-danger" @onclick="DeleteDevice">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+} 

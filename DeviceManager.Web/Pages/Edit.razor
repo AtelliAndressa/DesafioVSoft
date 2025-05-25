@@ -1,0 +1,21 @@
+﻿@page "/edit/{id?}"
+@using DeviceManager.Web.Models
+@using DeviceManager.Web.Services
+
+<EditForm Model="@device" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Código Referência:</label>
+        <InputText @bind-Value="device.CodigoReferencia" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Descrição:</label>
+        <InputText @bind-Value="device.Descricao" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Salvar</button>
+    <button @onclick="Cancel" class="btn btn-secondary mt-3">Cancelar</button>
+</EditForm>
