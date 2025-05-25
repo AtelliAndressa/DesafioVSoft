@@ -116,14 +116,10 @@ namespace DeviceManager.Mobile.Repositories
                     throw new InvalidOperationException($"Já existe um dispositivo com o código de referência {dispositivo.CodigoReferencia}");
                 }
 
-                Debug.WriteLine($"Atualizando dispositivo localmente: {dispositivo.CodigoReferencia}");
-                Debug.WriteLine($"ID: {dispositivo.ID}");
-                Debug.WriteLine($"IsSynchronized: {dispositivo.IsSynchronized}");
-                Debug.WriteLine($"DataAtualizacao: {dispositivo.DataAtualizacao}");
-
                 await _realm.WriteAsync(() =>
                 {
                     dispositivo.DataAtualizacao = DateTimeOffset.Now;
+                    dispositivo.IsSynchronized = false;
                     _realm.Add(dispositivo, update: true);
                 });
 

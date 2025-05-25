@@ -186,9 +186,12 @@ namespace DeviceManager.Mobile.Services
                 if (!response.IsSuccessStatusCode)
                 {
                     throw new Exception($"Erro ao atualizar dispositivo: {response.StatusCode}");
+                } else
+                {
+                    await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
                 }
 
-                var updatedDevice = await GetDeviceAsync(device.ID);
+                    var updatedDevice = await GetDeviceAsync(device.ID);
                 if (updatedDevice == null)
                 {
                     throw new Exception("Dispositivo não encontrado após atualização");
