@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1T3svJAqv5/hyyroQtdAH+oURuWTy5lGn2DG5LJpaHY=",
+  "Source": "DeviceManager.API",
+  "BasePath": "_content/DeviceManager.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
