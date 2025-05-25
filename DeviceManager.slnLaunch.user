@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "DeviceManager.API\\DeviceManager.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "DeviceManager.Mobile\\DeviceManager.Mobile.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "DeviceManager.Web\\DeviceManager.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
