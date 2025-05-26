@@ -174,7 +174,7 @@ namespace DeviceManager.Mobile.Repositories
                 .Any(d => d.CodigoReferencia == codigoReferencia && !d.IsDeleted));
         }
 
-        public async Task MarcarComoSincronizadoAsync(string id)
+        public async Task MarkAsSynchronizedAsync(string id)
         {
             var dispositivo = await GetByIdAsync(id);
             if (dispositivo == null)

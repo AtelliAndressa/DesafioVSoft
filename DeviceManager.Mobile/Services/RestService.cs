@@ -157,7 +157,7 @@ namespace DeviceManager.Mobile.Services
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
 
-                    await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
+                    await _deviceRepository.MarkAsSynchronizedAsync(device.ID);
 
                     return JsonSerializer.Deserialize<Dispositivo>(responseContent, _serializerOptions);
                 }
@@ -189,7 +189,7 @@ namespace DeviceManager.Mobile.Services
                     throw new Exception($"Erro ao atualizar dispositivo: {response.StatusCode}");
                 } else
                 {
-                    await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
+                    await _deviceRepository.MarkAsSynchronizedAsync(device.ID);
                 }
 
                     var updatedDevice = await GetDeviceAsync(device.ID);
@@ -324,7 +324,7 @@ namespace DeviceManager.Mobile.Services
                     // Marca todos os dispositivos como sincronizados
                     foreach (var device in devices)
                     {
-                        await _deviceRepository.MarcarComoSincronizadoAsync(device.ID);
+                        await _deviceRepository.MarkAsSynchronizedAsync(device.ID);
                     }
 
                     return syncedDevices;

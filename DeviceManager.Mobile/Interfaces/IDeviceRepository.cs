@@ -16,7 +16,7 @@ namespace DeviceManager.Mobile.Interfaces
 
         Task DeleteAsync(Dispositivo dispositivo);
 
-        Task MarcarComoSincronizadoAsync(string id);
+        Task MarkAsSynchronizedAsync(string id);
 
         Task<List<Dispositivo>> GetUnsynchronizedAsync();
 
