@@ -43,7 +43,6 @@ namespace DeviceManager.Mobile.Repositories
             }
         }
 
-
         public Task<List<Dispositivo>> GetAllAsync()
         {
             return Task.FromResult(_realm.All<Dispositivo>()
@@ -57,7 +56,7 @@ namespace DeviceManager.Mobile.Repositories
             return await Task.FromResult(_realm.Find<Dispositivo>(id));
         }
 
-        public async Task<Dispositivo> GetByCodigoReferenciaAsync(string codigoReferencia)
+        public async Task<Dispositivo> GetByReferenceCodeAsync(string codigoReferencia)
         {
             return await Task.FromResult(_realm.All<Dispositivo>()
                 .FirstOrDefault(d => d.CodigoReferencia == codigoReferencia && !d.IsDeleted));
@@ -72,7 +71,7 @@ namespace DeviceManager.Mobile.Repositories
                     throw new InvalidOperationException("O código de referência é obrigatório");
                 }
 
-                if (await CodigoReferenciaExisteAsync(dispositivo.CodigoReferencia))
+                if (await ReferenceCodeExistsAsync(dispositivo.CodigoReferencia))
                 {
                     throw new InvalidOperationException($"Já existe um dispositivo com o código de referência {dispositivo.CodigoReferencia}");
                 }
@@ -111,7 +110,7 @@ namespace DeviceManager.Mobile.Repositories
                 }
 
                 if (existingDevice.CodigoReferencia != dispositivo.CodigoReferencia &&
-                    await CodigoReferenciaExisteAsync(dispositivo.CodigoReferencia))
+                    await ReferenceCodeExistsAsync(dispositivo.CodigoReferencia))
                 {
                     throw new InvalidOperationException($"Já existe um dispositivo com o código de referência {dispositivo.CodigoReferencia}");
                 }
@@ -168,7 +167,7 @@ namespace DeviceManager.Mobile.Repositories
                 .ToList());
         }
 
-        public Task<bool> CodigoReferenciaExisteAsync(string codigoReferencia)
+        public Task<bool> ReferenceCodeExistsAsync(string codigoReferencia)
         {
             return Task.FromResult(_realm.All<Dispositivo>()
                 .Any(d => d.CodigoReferencia == codigoReferencia && !d.IsDeleted));

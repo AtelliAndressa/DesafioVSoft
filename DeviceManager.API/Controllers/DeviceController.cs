@@ -87,7 +87,7 @@ namespace DeviceManager.API.Controllers
                 if (string.IsNullOrEmpty(device.Descricao) || string.IsNullOrEmpty(device.CodigoReferencia))
                     return BadRequest("Description and reference code are required");
 
-                var existingDevice = await _deviceService.GetByCodigoReferenciaAsync(device.CodigoReferencia);
+                var existingDevice = await _deviceService.GetByReferenceCodeAsync(device.CodigoReferencia);
                 if (existingDevice != null)
                     return BadRequest($"Device with reference code {device.CodigoReferencia} already exists");
 
@@ -129,7 +129,7 @@ namespace DeviceManager.API.Controllers
 
                 if (existingDevice.CodigoReferencia != device.CodigoReferencia)
                 {
-                    var deviceWithSameCode = await _deviceService.GetByCodigoReferenciaAsync(device.CodigoReferencia);
+                    var deviceWithSameCode = await _deviceService.GetByReferenceCodeAsync(device.CodigoReferencia);
                     if (deviceWithSameCode != null)
                         return BadRequest($"Device with reference code {device.CodigoReferencia} already exists");
                 }

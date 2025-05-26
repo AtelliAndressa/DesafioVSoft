@@ -8,7 +8,7 @@ namespace DeviceManager.Mobile.Interfaces
 
         Task<Dispositivo> GetByIdAsync(string id);
 
-        Task<Dispositivo> GetByCodigoReferenciaAsync(string codigoReferencia);
+        Task<Dispositivo> GetByReferenceCodeAsync(string codigoReferencia);
 
         Task AddAsync(Dispositivo dispositivo);
 
@@ -20,7 +20,7 @@ namespace DeviceManager.Mobile.Interfaces
 
         Task<List<Dispositivo>> GetUnsynchronizedAsync();
 
-        Task<bool> CodigoReferenciaExisteAsync(string codigoReferencia);
+        Task<bool> ReferenceCodeExistsAsync(string codigoReferencia);
 
         Task<int> GetPendingChangesCountAsync();
 

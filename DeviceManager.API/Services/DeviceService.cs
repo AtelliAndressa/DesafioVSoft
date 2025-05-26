@@ -60,7 +60,7 @@ namespace DeviceManager.API.Services
             }
         }
 
-        public async Task<Dispositivo> GetByCodigoReferenciaAsync(string codigoReferencia)
+        public async Task<Dispositivo> GetByReferenceCodeAsync(string codigoReferencia)
         {
             try
             {
